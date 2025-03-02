@@ -18,9 +18,9 @@ from bokeh.core.properties import value
 from bokeh.io import export_png
 from bokeh.models import Label
 
-# 新增目录配置
-DATA_DIR = "data"
-HTML_DIR = "html"
+# 确保路径正确
+DATA_DIR = os.path.join(os.getcwd(), "data")
+HTML_DIR = os.path.join(os.getcwd(), "html")
 
 # 确保目录存在
 os.makedirs(DATA_DIR, exist_ok=True)
