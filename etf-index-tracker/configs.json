@@ -1,0 +1,37 @@
+[
+    {
+        "index_symbol": "sh000300",
+        "etf_symbol": "sh561930",
+        "index_file": "hs300_index.csv",
+        "etf_file": "hs300_etf.csv",
+        "title": "沪深300指数与ETF(561930)价格走势对比"
+    },
+    {
+        "index_symbol": "sz399006",
+        "etf_symbol": "sz159915",
+        "index_file": "cyb_index.csv",
+        "etf_file": "cyb_etf.csv",
+        "title": "创业板指与ETF(159915)价格走势对比"
+    },
+    {
+        "index_symbol": "hkHSI",
+        "etf_symbol": "sh513600",
+        "index_file": "hsi_index.csv",
+        "etf_file": "hsi_etf.csv",
+        "title": "恒生指数与ETF(513600)价格走势对比"
+    },
+    {
+        "index_symbol": "sh000001",
+        "etf_symbol": "sh510210",
+        "index_file": "shzh_index.csv",
+        "etf_file": "shzh_etf.csv",
+        "title": "上证指数与ETF(510210)价格走势对比"
+    },
+    {
+        "index_symbol": "sz399001",
+        "etf_symbol": "sz159903",
+        "index_file": "szcz_index.csv",
+        "etf_file": "szcz_etf.csv",
+        "title": "深证成指与ETF(159903)价格走势对比"
+    }
+]
