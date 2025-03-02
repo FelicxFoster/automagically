@@ -1,0 +1,49 @@
+name: etf-index-tracker
+on:
+  push:
+    paths:
+      - 'etf-index-tracker/**'
+  pull_request:
+    paths:
+      - 'etf-index-tracker/**'
+  schedule:
+    - cron: '0 10 * * *'  # UTC时间10:00（对应北京时间18:00）
+  workflow_dispatch:
+    inputs:
+      log_level:
+        description: 'Log level (e.g., info, debug)'
+        required: false
+        default: 'info'
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: etf-index-tracker/.venv  # 或缓存 pip 全局目录
+          key: pip-${{ hashFiles('etf-index-tracker/requirements.txt') }}
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+        working-directory: ./etf-index-tracker
+
+      - name: Execute main.py
+        run: python main.py
+        working-directory: ./etf-index-tracker
+
+      # 可选：错误通知
+      - name: Notify failure
+        if: ${{ failure() }}
+        uses: act10ns/slack@v1
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
